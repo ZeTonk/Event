@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 40px;
+            text-align: center;
+        }
+        input {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            color:  #333;
+        }
+    </style>
+</head>
+<body>
+    <h2>Key Down and Key Up Event Demo</h2>
+    <input type="text" id="inputBox" placeholder="Type something...">
+    <p id="message">
+        Press and release the keys in the input box.
+    </p>
+    <script>
+        document.getElementById('inputBox').addEventListener('keydown', function(event) {
+            document.getElementById('message').textContent = `Key down: ${event.key}`;
+        });
+
+        document.getElementById('inputBox').addEventListener('keyup', function(event) {
+            docuemnt.getElementById('message').textContent = `Key up: ${event.key}`;
+        });
+    </script>
+</body>
+</html>

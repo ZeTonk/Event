@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Press any symbol key and see it displayed below:</p>
+    <div id="keyPressed" style="font-size: 24px; font-weight: bold;">
+        -
+    </div>
+    <script>
+        document.addEventListener('keydown', function(event) {
+            const keyPressed = document.getElementById('keyPressed');
+
+            // A list of common symbol characters that can be checked
+            const symbols = [
+                '`', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '[', ']', '{', '}', '\\', '|', ';', ':', '\'', '"', ',', '<','.', '>', '/', '?'
+            ];
+
+            // Check if the pressed key is a symbol 
+            if (symbols.includes(event.key)) {
+                keyPressed.textContent = event.key; // Display the pressed symbol
+                // textContent is a JavaScript property that represents the text content of a node
+                // It replaces all content inside the element with the value of the pressed key
+                // Unlike innerHTML, textContent treats the input as plain text, not HTML.
+            }
+        })
+    </script>
+</body>
+</html>

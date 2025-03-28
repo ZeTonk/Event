@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="toggleListener">Toggle Listener</button>
+    <button id="testButton">Click Me!</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const testButton = document.getElementById('testButton');
+            const toggleButton = document.getElementById('toggleListener');
+
+            let isListening = false;
+
+            function showAlert() {
+                alert('Event Listener is active!');
+            }
+
+            toggleButton.addEventListener('click', function() {
+                if (!isListening) {
+                    // Add the event listener
+                    testButton.addEventListener('click', showAlert);
+
+                    isListening = true;
+
+                    toggleButton.textContent = 'Remove Listener';
+                } else {
+                    // Remove the event listener
+                    testButton.removeEventListener('click', showAlert);
+
+                    isListening = false;
+
+                    toggleButton.textContent = 'Add Listener';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
